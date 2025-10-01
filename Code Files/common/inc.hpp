@@ -1,8 +1,8 @@
 #pragma once
 
-#include <fmt/format.h>
-#include <fmt/ostream.h>
-#include <range/v3/all.hpp>
+#include <format>   // was #include <fmt/format.h>
+// not needed? #include <fmt/ostream.h>
+#include <ranges>   // was #include <range/v3/all.hpp>
 #include <cstdio>
 #include <iostream>
 #include <iomanip>
@@ -10,10 +10,10 @@
 #include <algorithm>
 #include <cxxabi.h>
 #include <typeinfo>
-#include <math.h>
+#include <cmath>
 #include <utility>
 
-using namespace fmt;
+// not needed?  using namespace fmt;
 using std::cout;
 using std::endl;
 using namespace std::string_literals;
