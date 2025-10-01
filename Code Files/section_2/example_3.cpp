@@ -22,10 +22,11 @@ int main()
 
     try
     {
-        cout << format("{:f", num) << endl;
+        cout << std::vformat("{:f", std::make_format_args(num)) << endl;    // DKS: Use vformat, make_format_args
     }
-    catch (const format_error& ex)
-    {
-        cout << format("!!! Exception: {}\n", ex.what());
+    catch (const std::format_error& ex)
+    {   
+        std::string what = ex.what();   // DKS: ex.what() is an rvalue ref, but std::make_format_args only takes lvalue, so we cant ex.what() directly
+        cout <<std::vformat("!!! Exception: {}\n", std::make_format_args(what));
     }
 }
