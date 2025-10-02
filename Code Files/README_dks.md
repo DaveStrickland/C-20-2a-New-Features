@@ -11,4 +11,5 @@ Dave Strickland 2025-10-01 <dave.strickland@gmail.com>
 [X] Disable FetchContent for fmt, cpp_coro, ranges libraries in CMakeLists.txt.
 [X] Disable addition of those implementations include directories in the project.
 [X] Modify `inc.hpp` in `common/`
-[ ] Get section 2 (format) working (WIP)
+[X] Get section 2 (format) working
+[ ] Get section 3 (ranges) working

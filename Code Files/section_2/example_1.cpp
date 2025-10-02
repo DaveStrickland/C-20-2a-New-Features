@@ -23,4 +23,6 @@ int main()
         Also had to modify the format string.
      */
     cout << std::vformat("{:0{}x}\n", std::make_format_args(n, pad));
+
+    // cout << std::format(std::runtime_format("{:0{}x}\n"), n, pad);  // OK in C++26
 }

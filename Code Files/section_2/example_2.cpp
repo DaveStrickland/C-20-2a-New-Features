@@ -16,8 +16,9 @@ std::ostream &operator<<(std::ostream &os, const Person &p)
     return os;
 }
 
-// DKS: Need to add a template specialization of std::formatter, see e.g.
+// DKS: Needed to add a template specialization of std::formatter, see e.g.
 // https://stackoverflow.com/questions/77958416/customize-formatter-with-abstraction
+// I'm not sure why the ostream did not work.
 
 template <>
 struct std::formatter<Person> : formatter<std::string>
