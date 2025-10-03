@@ -18,7 +18,9 @@ std::ostream &operator<<(std::ostream &os, const Person &p)
 
 // DKS: Needed to add a template specialization of std::formatter, see e.g.
 // https://stackoverflow.com/questions/77958416/customize-formatter-with-abstraction
-// I'm not sure why the ostream did not work.
+// The fmt library has an ability to use ostream in a formatter, but that does not
+// seem to come with the std::format implementation. You have to write your own
+// formatter, e.g.
 
 template <>
 struct std::formatter<Person> : formatter<std::string>

@@ -4,6 +4,9 @@ int main()
 {
     std::vector<int> numbers = { 1, 2, 3 ,4, 5 };
 
+    // DKS: STL algorithms often take two iterators, start and end...
+    // Use case: initialize a container, call algorithms sequentially
+    // on output from previous algorithm
     std::vector<int> evenNumbers;
     std::copy_if(numbers.begin(), numbers.end(),
        std::back_inserter(evenNumbers), [](int n){ return n % 2 == 0; });
@@ -12,13 +15,22 @@ int main()
     std::transform(evenNumbers.begin(), evenNumbers.end(),
        std::back_inserter(results), [](int n){ return n * 2; });
 
-    std::cout << format("\nc++98: {}\n", fmt::join(results, ", "));
+    std::string results_str = join(results, ", ");   // DKS: Added to get around non const lval binding
+    std::cout << std::vformat("\nc++98: {}\n", std::make_format_args( results_str ));
 
+    // DKS: Note c++20 range does not have to_vector
+    /*
     auto result2 = numbers
-        | ranges::views::filter([](int n){ return n % 2 == 0; })
-        | ranges::views::transform([](int n){ return n * 2; })
-        | ranges::to_vector;
+        | std::ranges::views::filter([](int n){ return n % 2 == 0; })
+        | std::ranges::views::transform([](int n){ return n * 2; })
+        | std::ranges::to_vector;
+    */
+    auto result2 = to_vector<>( numbers
+        | std::ranges::views::filter([](int n){ return n % 2 == 0; })
+        | std::ranges::views::transform([](int n){ return n * 2; }) );
 
-    std::cout << format("\nc++20: {}\n", fmt::join(result2, ", "));
+
+    std::string results2_str = join(result2, ", ");
+    std::cout << std::vformat("\nc++20: {}\n", std::make_format_args(results2_str));
 }
 
