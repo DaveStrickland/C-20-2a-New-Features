@@ -14,9 +14,11 @@ int main()
     MyValue iw1{1.0f};
     MyValue iw2{NAN};
 
-    cout << "lhs lower: " <<(iw1 <=> iw2 < 0) << endl;
-    cout << "lhs equal: " <<(iw1 <=> iw2 == 0) << endl;
-    cout << "lhs higher: " <<(iw1 <=> iw2 > 0) << endl;
+    cout << "lhs lower: " <<(iw1 <=> iw2 < 0) << endl;  // DKS: use of 3way op, this is equivalent to iw1 < iw2
+    cout << "lhs equal: " <<(iw1 <=> iw2 == 0) << endl; // DKS: equivalent of iw1 == iw2
+    cout << "lhs higher: " <<(iw1 <=> iw2 > 0) << endl; // DKS: equivalent of iw1 > iw2 
 
-    cout << typeName(iw2 <=> iw2) << endl;
+    cout << typeName(iw2 <=> iw2) << endl;              // DKS: type of ordering supported
+                                                        // strong one of the comparisons will return true
+                                                        // partial none of the comparisons will return true
 }
