@@ -5,12 +5,16 @@ struct InternalT
 {
     int v;
     constexpr InternalT(int v) : v{v} {}
-    auto operator <=>(const InternalT& rhs) const
+
+    // DKS: You might define your own operators in cases of types where some
+    // optimization is possible, e.g strings you can check string length
+    // before doing character by character comparison, etc.
+    auto operator <=>(const InternalT& rhs) const   // DKS: User-defined <=> operator instead of compiler...
     {
         cout << "called <=> with: " << v << ", " << rhs.v << endl;
         return v <=> rhs.v;
     }
-    auto operator==(const InternalT& rhs) const
+    auto operator==(const InternalT& rhs) const     // DKS: ...so user MUST also define an equality operator
     {
         cout << "called == with: " << v << ", " << rhs.v << endl;
         return v == rhs.v;
