@@ -1,4 +1,4 @@
-module sysinfo2;
+module sysinfo;
 
 const char* get_arch()
 {

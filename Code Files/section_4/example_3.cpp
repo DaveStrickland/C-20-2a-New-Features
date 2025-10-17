@@ -18,5 +18,6 @@ int main()
     MyValue iw1{2};
     MyValue iw2{3};
 
-    iw1 <= iw2;
+    bool ans = iw1 <= iw2;
+    std::cout << "Result of iw1 <= iw2 is" << ans << std::endl;
 }
