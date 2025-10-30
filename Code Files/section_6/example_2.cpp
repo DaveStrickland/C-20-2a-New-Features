@@ -2,12 +2,14 @@
 #include <concepts>
 #include <compare>
 
+// defines our new concept
 template<typename T>
 concept ThreeWayComparable = requires(T a, T b)
 {
 	{ a <=> b } -> std::convertible_to<std::partial_ordering>;
 };
 
+// says that the template requites types that satisfy the required concept
 template<typename T> requires ThreeWayComparable<T>
 auto comp(const T& a, const T& b)
 {

@@ -7,7 +7,7 @@ struct MyStruct
 {
     int value;
     MyStruct(int v) : value(v) {}
-    //auto operator<=>(const MyStruct&) const = default;
+    auto operator<=>(const MyStruct&) const = default; // (A)
 };
 
 template<typename It>
@@ -35,7 +35,12 @@ void mysort(T begin, T end)
 
 int main()
 {
+    // Generates a more informative compiler error message
+//    std::list<MyStruct> lis{1, 3, 5 , 2, 2};
+//    mysort(lis.begin(), lis.end());
+
+    // will work is (A) is uncommented, container supports random access and struct
+    // has spaceship operator
     std::vector<MyStruct> vec{1, 3, 5 , 2, 2};
-    
-    //mysort(vec.begin(), vec.end());
+    mysort(vec.begin(), vec.end());
 }
