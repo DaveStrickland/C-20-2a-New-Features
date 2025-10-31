@@ -1,4 +1,5 @@
 add_compile_options(-fsanitize=thread)
+add_link_options(-fsanitize=thread)
 add_executable(section_7_ex_1 example_1.cpp)
 add_executable(section_7_ex_2 example_2.cpp)
 add_executable(section_7_ex_3 example_3.cpp)
