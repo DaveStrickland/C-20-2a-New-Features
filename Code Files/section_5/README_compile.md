@@ -2,6 +2,9 @@
 
 Added to record the compiling by hand parts of the course.
 
+    Ultimately I could not get this to compile using either Apple Clang 17.0
+    or G++ 14.3
+
 ## G++
 
 The module file is treated like any other C++ file on the command line.
