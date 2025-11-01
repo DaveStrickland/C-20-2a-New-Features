@@ -1,11 +1,13 @@
 # Compiling from the command line with G++ or Clang
 
+## On MacOS 15.7 Sequoia
+
 Added to record the compiling by hand parts of the course.
 
     Ultimately I could not get this to compile using either Apple Clang 17.0
     or G++ 14.3
 
-## G++
+### G++
 
 The module file is treated like any other C++ file on the command line.
 
@@ -15,7 +17,7 @@ g++-14 -std=c++20 -fmodules-ts M.cpp example_4.cpp -o example_4.exe
 
 However, behind the scenes `g++` creates a gcm.cache directory containing a M.gcm file.
 
-## Clang
+### Clang
 
 ```bash
 # Slightly adatoped from course video, so not clang++9 and not -std=c++2a
@@ -84,4 +86,9 @@ clang++ -std=c++20 example_4.cpp -fprebuilt-module-path=. M.pcm -o example_4_cla
 clang++: error: no such file or directory: 'M.pcm'
 ```
 
-I give up.
+I give up on MacOS
+
+## On Linux (Fedora 42)
+
+`CMake` compile works out of the box. I need to redo the parts of the course with the "by-hand" compiling
+on Fedora.

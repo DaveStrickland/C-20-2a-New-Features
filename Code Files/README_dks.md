@@ -12,4 +12,10 @@ Dave Strickland 2025-10-01 <dave.strickland@gmail.com>
 [X] Disable addition of those implementations include directories in the project.
 [X] Modify `inc.hpp` in `common/`
 [X] Get section 2 (format) working
-[ ] Get section 3 (ranges) working
+[X] Get section 3 (ranges) working
+[X] Get section 4 (three way comparison operator) working
+[ ] Get section 5 (modules) working: not compiling on MacOS
+[X] Get section 6 (concepts) working
+[ ] Get section 7 (threading) working: no tsan on MacOS so not compiling, works on Linux of course.
+[ ] Get section 8 (coroutines) working
+[ ] Get section 9 (??) working
