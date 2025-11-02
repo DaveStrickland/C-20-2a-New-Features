@@ -3,6 +3,11 @@
 I've added this to document my attempts to get this working with
 either G++ 14.3 or Apple Clang 17.0 on MacOS Sequoia 15.7.1 (M1 Max).
 
+## On Fedora Linux 42 It Compiles And Run Fine
+
+The only slight changes needed were to (a) install libtsan, and `#include <latch>` 
+and `#include <barrier>`. Otherwise works out of the box, because its Linux.
+
 ## Using Original CMakeLists.txt on MacOS
 
 With G++-14 as the compiker we get:

@@ -3,10 +3,11 @@
 #include <atomic>
 #include <chrono>
 #include <iostream>
+#include <barrier>  // DKS: Added
 
 int main()
 {
-    std::flex_barrier barrier{2};
+    std::barrier barrier{2};   // DKS: flex_barrier may not exist?
     std::atomic<int> counter;
 
     for(;;)
@@ -18,7 +19,7 @@ int main()
                 ++counter;
                 std::this_thread::sleep_for(std::chrono::milliseconds(200));
             }
-            barrier.arrive_and_wait();
+            barrier.arrive_and_wait();                                          // blocks until {2} threads have arrived, then re-start
             std::cout << "final counter from A: " << counter << std::endl;
         });
         std::jthread threadB([&]()

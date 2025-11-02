@@ -5,11 +5,12 @@
 
 int main()
 {
+    // Efficient atomix waiting
     std::atomic<bool> lock{false};
     std::jthread threadA([&lock]()
     {
         std::cout << "A+\n";
-        lock.wait(false);
+        lock.wait(false);   // More lightweight than conditiona variable
         std::cout << "A-\n";
     });
     std::jthread threadB([&lock]()
