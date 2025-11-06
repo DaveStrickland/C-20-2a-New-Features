@@ -1,6 +1,7 @@
 #pragma once
 
-#include <experimental/coroutine>
+//#include <experimental/coroutine>
+#include <coroutine>
 #include <memory>
 
 template<typename T>
@@ -8,7 +9,8 @@ class generator
 {
 public:
     struct promise_type;
-    using handle_type = std::experimental::coroutine_handle<promise_type>;
+    //using handle_type = std::experimental::coroutine_handle<promise_type>; // DKS not experimental anymore
+    using handle_type = std::coroutine_handle<promise_type>;
 private:
     handle_type coro;
 public:
@@ -60,12 +62,14 @@ public:
 
         auto initial_suspend()
         {
-            return std::experimental::suspend_always{};
+            //return std::experimental::suspend_always{};
+            return std::suspend_always{};
         }
 
-        auto final_suspend()
+        auto final_suspend() noexcept // DKS added noexcept
         {
-            return std::experimental::suspend_always{};
+            //return std::experimental::suspend_always{};
+            return std::suspend_always{};
         }
 
         auto get_return_object()
@@ -75,13 +79,15 @@ public:
 
         auto return_void()
         {
-            return std::experimental::suspend_never{};
+            //return std::experimental::suspend_never{};
+            return std::suspend_never{};
         }
 
         auto yield_value(T some_value)
         {
             current_value = some_value;
-            return std::experimental::suspend_always{};
+            //return std::experimental::suspend_always{};
+            return std::suspend_always{};
         }
 
         void unhandled_exception()

@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-#include(FetchContent)
+include(FetchContent)
 #FetchContent_Declare(
 #    fmt
 #    GIT_REPOSITORY "https://github.com/fmtlib/fmt.git"
@@ -30,29 +30,29 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 #endif()
 #set(RANGES_PATH ${ranges_SOURCE_DIR})
 
-#FetchContent_Declare(
-#    cppcoro
-#    GIT_REPOSITORY "https://github.com/lewissbaker/cppcoro.git"
-#    GIT_TAG 00b34af58e8e74e0ca1739967ce410792e024964
-#)
+FetchContent_Declare(
+   cppcoro
+   GIT_REPOSITORY "https://github.com/lewissbaker/cppcoro.git"
+   GIT_TAG 00b34af58e8e74e0ca1739967ce410792e024964
+)
 
-#FetchContent_GetProperties(cppcoro)
-#if(NOT cppcoro_POPULATED)
-#    FetchContent_Populate(cppcoro)
-#endif()
-#set(CPPCORO_PATH ${cppcoro_SOURCE_DIR})
+FetchContent_GetProperties(cppcoro)
+if(NOT cppcoro_POPULATED)
+   FetchContent_Populate(cppcoro)
+endif()
+set(CPPCORO_PATH ${cppcoro_SOURCE_DIR})
 
 #add_subdirectory(${FMT_PATH} ${CMAKE_CURRENT_BINARY_DIR}/fmt EXCLUDE_FROM_ALL)
 #include_directories(${FMT_PATH}/include)
 #include_directories(${RANGES_PATH}/include)
-#include_directories(${CPPCORO_PATH}/include)
+include_directories(${CPPCORO_PATH}/include)
 include_directories(common)
 add_subdirectory (section_2)
 add_subdirectory (section_3)
-add_subdirectory (section_4)
+#add_subdirectory (section_4) # works with g++-14
 add_subdirectory (section_5)
 add_subdirectory (section_6)
-add_subdirectory (section_7)
-#add_subdirectory (section_8)
+#add_subdirectory (section_7) # only works on Linux
+add_subdirectory (section_8)
 #add_subdirectory (section_9)
 
