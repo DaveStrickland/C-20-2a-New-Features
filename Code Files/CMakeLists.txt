@@ -47,12 +47,12 @@ set(CPPCORO_PATH ${cppcoro_SOURCE_DIR})
 #include_directories(${RANGES_PATH}/include)
 include_directories(${CPPCORO_PATH}/include)
 include_directories(common)
-add_subdirectory (section_2)
-add_subdirectory (section_3)
+#add_subdirectory (section_2)
+#add_subdirectory (section_3)
 #add_subdirectory (section_4) # works with g++-14
-add_subdirectory (section_5)
-add_subdirectory (section_6)
+#add_subdirectory (section_5)
+#add_subdirectory (section_6)
 #add_subdirectory (section_7) # only works on Linux
-add_subdirectory (section_8)
-#add_subdirectory (section_9)
+#add_subdirectory (section_8)
+add_subdirectory (section_9)
 

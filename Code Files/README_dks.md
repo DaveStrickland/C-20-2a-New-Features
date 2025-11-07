@@ -18,4 +18,4 @@ Dave Strickland 2025-10-01 <dave.strickland@gmail.com>
 [X] Get section 6 (concepts) working
 [X] Get section 7 (threading) working: no tsan on MacOS so not compiling, works on Linux of course.
 [-] Get section 8 (coroutines) working: only example 1
-[ ] Get section 9 (??) working
+[X] Get section 9 (other minor new features) working
